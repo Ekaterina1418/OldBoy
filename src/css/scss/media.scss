@@ -5,7 +5,7 @@
     margin-right: 10px;
   }
   .menu__link {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .telephone__number {
     font-size: 1.3rem;
@@ -15,7 +15,7 @@
 
 @media (max-width: 1000px) {
   .header__top {
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .burger-menu {
     position: fixed;
@@ -34,7 +34,7 @@
       content: '';
       position: absolute;
       left: 11px;
-      top: 13px;
+      top: 14px;
       width: 22px;
       height: 2px;
       background-color: $white;
@@ -46,7 +46,7 @@
       content: '';
       position: absolute;
       left: 11px;
-      top: 26px;
+      top: 30px;
       width: 22px;
       height: 2px;
       background-color: $white;
@@ -58,7 +58,7 @@
       content: '';
       position: absolute;
       left: 11px;
-      top: 20px;
+      top: 22px;
       width: 22px;
       height: 2px;
       background-color: #fff;
@@ -67,7 +67,9 @@
       transition: all 0.3s ease-out;
     }
   }
-
+  .location {
+    right: 40px;
+  }
   .menu {
     position: fixed;
     top: 0;
@@ -107,9 +109,17 @@
   .br {
     display: none;
   }
+  .popup__content {
+    background: url('../../images/background-popup_tablet.jpg') no-repeat;
+    width: 500px;
+    height: 400px;
+  }
+  .popup__title {
+    display: none;
+  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .header {
     padding: 26px 20px 60px;
   }
@@ -128,7 +138,10 @@
     display: grid;
     grid-template-columns: 1fr 155px 1fr;
     grid-template-rows: auto;
-    gap: 37px;
+    row-gap: 37px;
+  }
+  .location {
+    left: 13px;
   }
   .telephone {
     grid-area: 2/2;
@@ -137,7 +150,13 @@
       font-size: 1.5rem;
       text-align: center;
     }
+    .popup__content {
+      background: url('../../images/background-popup_tablet.jpg') no-repeat;
+      width: 500px;
+      height: 400px;
+    }
   }
+
   .location__title {
     font-size: 0.4rem;
   }
@@ -171,6 +190,16 @@
   }
   .burger-menu {
     top: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .popup__content {
+    background: url('../../images/background-popup_mobile.jpg') no-repeat;
+    width: 280px;
+    height: 250px;
+  }
+  .popup__title {
+    display: none;
   }
 }
 @media (max-width: 425px) {

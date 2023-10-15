@@ -1,20 +1,26 @@
 @import './variables.scss';
-.header {
-  position: relative;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.background {
   background: url('../../images/background.jpg') no-repeat;
   background-size: cover;
   background-position: bottom center;
-  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 50px 50px 60px;
-  &::before {
-    content: '';
-    background: rgba(0, 0, 0, 0.45);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+
   &__top {
     position: relative;
     display: flex;
@@ -34,11 +40,15 @@
 .menu {
   display: flex;
   z-index: 2;
-
+  overflow-y: hidden;
+  &__list {
+    padding-left: 10px;
+  }
   &__link {
     color: $white;
     font-family: RexBold;
     font-size: 1.2rem;
+    transition: all 0.25s ease-out;
   }
   &__link:hover {
     color: $gold;
@@ -49,6 +59,18 @@
   &__list {
     display: flex;
     z-index: 2;
+  }
+  &__button--close::after {
+    transform: rotate(-45deg);
+    transform-origin: left center;
+  }
+  &__button--close::before {
+    transform: rotate(45deg);
+    transform-origin: left center;
+  }
+
+  &__button--close .burger-menu__button {
+    width: 0;
   }
 }
 
@@ -118,6 +140,10 @@
     font-family: RexBold;
     font-size: 1.125rem;
     line-height: 1.3125rem;
+    transition: all 0.25s ease-out;
+  }
+  &__city:hover {
+    color: $gold;
   }
 }
 
@@ -194,7 +220,7 @@
   position: relative;
   right: 0;
   width: 208px;
-  transform: translateY(150px);
+  transform: translateY(155px);
   &__wrapper {
     position: relative;
   }
@@ -287,11 +313,23 @@
     transition: 0.15s ease-out;
     text-shadow: 2px 2px 4px rgba(79, 75, 75, 0.752);
   }
+  &__input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  &__error {
+    display: none;
+  }
+  &__error {
+    font-family: 'Rex', Arial, sans-serif;
+    color: rgb(171, 10, 10);
+    font-size: 0.6rem;
+    text-align: center;
+    margin-top: 5px;
+  }
   &__label-wrapper {
     margin-top: 12px;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
   }
 
   &__label {
@@ -360,8 +398,7 @@
     justify-content: center;
     min-width: 200px;
     padding: 0 20px;
-    color: #fff;
-    font-weight: 00;
+    color: $white;
     font-size: 12px;
     font-family: OpenSans, Arial, sans-serif;
     line-height: 44px;
@@ -371,12 +408,16 @@
     text-decoration: none;
     vertical-align: top;
     background-color: #d6a354;
-    border: 2px solid #d6a354;
+    border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.25s ease-out;
   }
 
+  &__button--submit:hover {
+    background-color: $white;
+    color: $gold;
+  }
   &::before {
     content: '';
     transform: rotate(40deg);
@@ -388,5 +429,34 @@
   }
   & .burger-menu__button {
     width: 0;
+  }
+}
+.popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99998;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    background: url('../../images/background-popup.jpg') no-repeat;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    color: $white;
+    font-family: Rexbold, sans-serif;
+    font-size: 2.7rem;
+    line-height: 2.7rem;
+    font-weight: 700;
   }
 }
